@@ -4,17 +4,18 @@ import AddCategory from './components/AddCategory';
 import "./gif-app.css"
 
 function GifApp() {
-  const categories = ["Mr. Robot", "Dark", "Moon Knight"];
+  const initialCategories = ["Mr. Robot", "Dark", "Moon Knight"];
 
-  // const [categories, setCategories] = useState(initialCategories);
+  const [categories, setCategories] = useState(initialCategories);
 
   // const handleAdd = () =>{
   //   setCategories([...categories, "Ms. Marvel"]);
   // }
+
     return (
               <>
                 <h2 className='header'>Gif App</h2>
-                <AddCategory></AddCategory>
+                <AddCategory setCategories={ setCategories } />
                 <hr />
                 {/* <button onClick={handleAdd}>Add</button> */}
                 <ol>
