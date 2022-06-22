@@ -12,7 +12,7 @@ const GifGrid = ({ category }) => {
         <h3>{ category }</h3>
         <ol>
             {loading && <div className='lds-spinner'><div></div><div></div><div></div></div>}
-            { images.length == 0 ? <p>Nothing has been found</p>
+            { images.length == 0 && !loading ? <p>Nothing has been found</p>
             :
                 images.map((gif)=>{
                     return <GifGridItem 
