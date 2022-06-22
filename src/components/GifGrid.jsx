@@ -6,14 +6,15 @@ import { useFetchGifs } from '../hooks/useFetchGif'
 
 const GifGrid = ({ category }) => {
    const { data:images, loading } = useFetchGifs(category);
+   console.log(images);
   return (
     <div>
         <h3>{ category }</h3>
         <ol>
-            {loading && <p>Loading...</p>}
-            {
+            {loading && <div className='lds-spinner'><div></div><div></div><div></div></div>}
+            { images.length == 0 ? <p>Nothing has been found</p>
+            :
                 images.map((gif)=>{
-
                     return <GifGridItem 
                             key={gif.id} 
                             { ...gif } 

@@ -14,7 +14,12 @@ const AddCategory = ({ setCategories }) => {
         evt.preventDefault(); //This prevents the re rendering triggered by submit action
         if(inputValue.trim().length === 0)return;
 
-        setCategories( cat => [inputValue, ...cat]);
+        setCategories( cat => {
+            if(cat.some((cat)=> cat == inputValue))
+                return [...cat];
+            else
+                return [inputValue, ...cat];
+        });
         setInputValue("");
     }
 
