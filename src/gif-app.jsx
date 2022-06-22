@@ -15,8 +15,8 @@ function GifApp() {
                 <hr />
                 <ul>
                     {
-                      categories.map((cat, i)=>
-                        <GifGrid key={i} 
+                      categories.map((cat)=>
+                        <GifGrid key={cat} 
                                 category={cat} 
                         />
                       )
