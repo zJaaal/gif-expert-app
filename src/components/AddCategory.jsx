@@ -1,40 +1,36 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import "../gif-app.css"
-
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import "../gif-app.css";
 
 const AddCategory = ({ setCategories }) => {
+  const [inputValue, setInputValue] = useState("");
 
-    const [inputValue, setInputValue] = useState("");
+  const handleInputChange = (evt) => {
+    setInputValue(evt.target.value);
+  };
+  const handleSubmit = (evt) => {
+    evt.preventDefault(); //This prevents the re rendering triggered by submit action
+    if (inputValue.trim().length === 0) return;
 
-    const handleInputChange = (evt) => {
-        setInputValue(evt.target.value);
-    }
-    const handleSubmit = (evt) => {
-        evt.preventDefault(); //This prevents the re rendering triggered by submit action
-        if(inputValue.trim().length === 0)return;
+    setCategories((cat) => {
+      if (cat.some((cat) => cat == inputValue)) return [...cat];
+      else return [inputValue, ...cat];
+    });
+    setInputValue("");
+  };
 
-        setCategories( cat => {
-            if(cat.some((cat)=> cat == inputValue))
-                return [...cat];
-            else
-                return [inputValue, ...cat];
-        });
-        setInputValue("");
-    }
-
-    return (
-        <form onSubmit={ handleSubmit }>
-            <input 
-                className="add-category" 
-                type="text" 
-                value={inputValue}
-                onChange={handleInputChange}
-            />
-        </form>
-      )
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        className="add-category"
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+    </form>
+  );
 };
-AddCategory.propTypes ={
-    setCategories : PropTypes.func.isRequired
+AddCategory.propTypes = {
+  setCategories: PropTypes.func.isRequired,
 };
-export default AddCategory
+export default AddCategory;
