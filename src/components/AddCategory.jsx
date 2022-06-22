@@ -5,7 +5,7 @@ import "../gif-app.css"
 
 const AddCategory = ({ setCategories }) => {
 
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState([]);
 
     const handleInputChange = (evt) => {
         setInputValue(evt.target.value);
@@ -14,7 +14,7 @@ const AddCategory = ({ setCategories }) => {
         evt.preventDefault(); //This prevents the re rendering triggered by submit action
         if(inputValue.trim().length === 0)return;
 
-        setCategories( cat => [...cat, inputValue]);
+        setCategories( cat => [inputValue, ...cat]);
         setInputValue("");
     }
 

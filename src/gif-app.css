@@ -8,3 +8,26 @@
     font-size: 1.2em;
     color: grey;
 }
+
+img {
+    height: auto;
+    width: auto;
+    max-height: 180px;
+}
+
+li {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
+
+li p {
+    display: flex;
+    justify-content: center;
+}
+
+ol {
+    display: flex;
+    flex-wrap: wrap;
+}
