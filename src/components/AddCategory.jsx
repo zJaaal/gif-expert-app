@@ -5,7 +5,7 @@ import "../gif-app.css"
 
 const AddCategory = ({ setCategories }) => {
 
-    const [inputValue, setInputValue] = useState([]);
+    const [inputValue, setInputValue] = useState("");
 
     const handleInputChange = (evt) => {
         setInputValue(evt.target.value);
