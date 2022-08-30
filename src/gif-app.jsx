@@ -12,6 +12,7 @@ function GifApp() {
       <h2 className="header">Gif App</h2>
       <AddCategory setCategories={setCategories} />
       <hr />
+
       <ul>
         {categories.map((cat) => (
           <GifGrid key={cat} category={cat} />
